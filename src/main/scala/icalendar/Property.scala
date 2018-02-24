@@ -3,8 +3,6 @@ package icalendar
 import java.time.{ LocalDate, ZonedDateTime, ZoneOffset }
 import java.net.{ URL, URI }
 
-import scala.language.implicitConversions
-
 sealed abstract class Property[T <: ValueType] { self: Product =>
   lazy val name: String = nameFromClassName(this)
 

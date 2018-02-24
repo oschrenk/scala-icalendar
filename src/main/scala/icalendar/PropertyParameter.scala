@@ -1,7 +1,5 @@
 package icalendar
 
-import scala.language.implicitConversions
-
 sealed abstract class PropertyParameter[T] {
   lazy val name: String = nameFromClassName(this)
   val value: T

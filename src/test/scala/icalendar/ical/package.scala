@@ -3,8 +3,6 @@
  */
 package icalendar
 
-import scala.language.implicitConversions
-
 import org.scalatest._
 import org.scalatest.matchers._
 

@@ -2,7 +2,6 @@ package icalendar
 
 import java.net.{ URI, URL }
 import java.time.{ LocalDate, ZonedDateTime }
-import scala.language.implicitConversions
 
 sealed trait ValueType
 
