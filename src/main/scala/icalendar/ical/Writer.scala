@@ -14,6 +14,9 @@ object Writer {
   val DQUOTE = "\""
   val CRLF = "\r\n"
 
+  private val IsoDateFormatter = DateTimeFormatter.ofPattern("yyyyMMdd")
+  private val IsoDateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'")
+
   def additionalParameters(value: ValueType): List[PropertyParameter[_]] = value match {
     case EitherType(Right(payload)) => List(Value(payload.getClass.getSimpleName.toUpperCase))
     case _ => Nil
@@ -29,10 +32,9 @@ object Writer {
         case other => other.toString
       }
     case date: Date =>
-      date.d.format(DateTimeFormatter.ofPattern("yyyyMMdd"))
-    case date: DateTime =>
-      val utc = date.dt.withZoneSameInstant(ZoneOffset.UTC)
-      utc.format(DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'"))
+      date.d.format(IsoDateFormatter)
+    case dateTime: DateTime =>
+      dateTime.dt.withZoneSameInstant(ZoneOffset.UTC).format(IsoDateTimeFormatter)
     case value: CalAddress => valueAsIcal(value.value)
     case Uri(uri) => uri.toString
     case EitherType(Left(payload)) => valueAsIcal(payload)
