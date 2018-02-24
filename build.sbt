@@ -1,3 +1,5 @@
+name := "ical.scala"
+
 organization := "com.oschrenk.spacetime"
 
 version := "0.0.1-SNAPSHOT"
