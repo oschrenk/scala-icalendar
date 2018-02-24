@@ -28,13 +28,11 @@ object Writer {
         case '\n' => "\\n"
         case other => other.toString
       }
-    case date: Date => {
+    case date: Date =>
       date.d.format(DateTimeFormatter.ofPattern("yyyyMMdd"))
-    }
-    case date: DateTime => {
+    case date: DateTime =>
       val utc = date.dt.withZoneSameInstant(ZoneOffset.UTC)
       utc.format(DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'"))
-    }
     case value: CalAddress => valueAsIcal(value.value)
     case Uri(uri) => uri.toString
     case EitherType(Left(payload)) => valueAsIcal(payload)
