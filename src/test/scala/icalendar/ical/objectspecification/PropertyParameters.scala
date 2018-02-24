@@ -39,7 +39,7 @@ class PropertyParameters extends WordSpec with Matchers {
         Attendee(
           CalAddress(
             "mailto:jdoe@example.com",
-            delegatedFrom = DelegatedFrom(List(CalAddress("mailto:jsmith@example.com")))))) should haveLines(
+            delegatedFrom = DelegatedFrom(Seq(CalAddress("mailto:jsmith@example.com")))))) should haveLines(
           """ATTENDEE;DELEGATED-FROM="mailto:jsmith@example.com":mailto:jdoe@example.com""")
     }
 
@@ -49,7 +49,7 @@ class PropertyParameters extends WordSpec with Matchers {
           CalAddress(
             "mailto:jsmith@example.com",
             delegatedTo = DelegatedTo(
-              List(
+              Seq(
                 CalAddress("mailto:jdoe@example.com"),
                 CalAddress("mailto:jqpublic@example.com")))))) should haveLines(
           """ATTENDEE;DELEGATED-TO="mailto:jdoe@example.com","mailto:jqpublic@example.co""",
@@ -93,7 +93,7 @@ class PropertyParameters extends WordSpec with Matchers {
           CalAddress(
             "mailto:jsmith@example.com",
             member = Member(
-              List(
+              Seq(
                 CalAddress("mailto:ietf-calsch@example.org")))))) should haveLines(
           """ATTENDEE;MEMBER="mailto:ietf-calsch@example.org":mailto:jsmith@example.com""")
 
@@ -102,7 +102,7 @@ class PropertyParameters extends WordSpec with Matchers {
           CalAddress(
             "mailto:janedoe@example.com",
             member = Member(
-              List(
+              Seq(
                 CalAddress("mailto:projectA@example.com"),
                 CalAddress("mailto:projectB@example.com")))))) should haveLines(
           """ATTENDEE;MEMBER="mailto:projectA@example.com","mailto:projectB@example.com"""",

@@ -6,10 +6,10 @@ import java.net.{ URL, URI }
 sealed abstract class Property[T <: ValueType] { self: Product =>
   lazy val name: String = nameFromClassName(this)
 
-  val parameters: List[PropertyParameter[_]] = self.productIterator.collect {
+  val parameters: Seq[PropertyParameter[_]] = self.productIterator.collect {
     case Some(p: PropertyParameter[_]) => p
     case p: PropertyParameter[_] => p
-  }.toList
+  }.toSeq
   val value: T
 }
 

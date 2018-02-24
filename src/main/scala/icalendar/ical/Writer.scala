@@ -17,8 +17,8 @@ object Writer {
   private val IsoDateFormatter = DateTimeFormatter.ofPattern("yyyyMMdd")
   private val IsoDateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'")
 
-  def additionalParameters(value: ValueType): List[PropertyParameter[_]] = value match {
-    case EitherType(Right(payload)) => List(Value(payload.getClass.getSimpleName.toUpperCase))
+  def additionalParameters(value: ValueType): Seq[PropertyParameter[_]] = value match {
+    case EitherType(Right(payload)) => Seq(Value(payload.getClass.getSimpleName.toUpperCase))
     case _ => Nil
   }
 
@@ -40,7 +40,7 @@ object Writer {
     case EitherType(Left(payload)) => valueAsIcal(payload)
     case EitherType(Right(payload)) => valueAsIcal(payload)
     case Binary(bytes) => ??? // TODO base64-encoded
-    case list: ListType[_] => list.values.toList.map(valueAsIcal).mkString(",")
+    case list: ListType[_] => list.values.map(valueAsIcal).mkString(",")
     case Period(from, to) => valueAsIcal(from) + "/" + valueAsIcal(to)
   }
 
@@ -56,7 +56,7 @@ object Writer {
         case Left(v) => parameterValueAsIcal(v)
         case Right(v) => parameterValueAsIcal(v)
       }
-    case l: List[_] =>
+    case l: Seq[_] =>
       l.map {
         case value: ValueType => DQUOTE + valueAsIcal(value) + DQUOTE
         case other => DQUOTE + other.toString + DQUOTE
@@ -68,7 +68,7 @@ object Writer {
       "-" + m.group(0)
     })).toUpperCase
 
-  def asIcal(parameters: List[PropertyParameter[_]]): String =
+  def asIcal(parameters: Seq[PropertyParameter[_]]): String =
     parameters
       .map((parameter: PropertyParameter[_]) =>
         ";" + parameterName(parameter.name) + "=" + parameterValueAsIcal(parameter.value))
@@ -78,7 +78,7 @@ object Writer {
     if (contentline.length > 75) contentline.take(75) + CRLF + " " + fold(contentline.drop(75))
     else contentline
 
-  def valueParameters(value: Any): List[PropertyParameter[_]] = value match {
+  def valueParameters(value: Any): Seq[PropertyParameter[_]] = value match {
     case parameterized: Parameterized => parameterized.parameters
     case _ => Nil
   }
@@ -93,8 +93,8 @@ object Writer {
 
   def asIcal(vobject: VObject): String = {
     "BEGIN:" + vobject.name + CRLF +
-    vobject.properties().map(asIcal).mkString +
-    vobject.components().map(asIcal).mkString +
-    "END:" + vobject.name + CRLF
+      vobject.properties().map(asIcal).mkString +
+      vobject.components().map(asIcal).mkString +
+      "END:" + vobject.name + CRLF
   }
 }

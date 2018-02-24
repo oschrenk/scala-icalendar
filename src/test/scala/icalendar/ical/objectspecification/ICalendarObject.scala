@@ -16,7 +16,7 @@ class ICalendarObject extends WordSpec with Matchers {
       asIcal(
         Calendar(
           prodid = Prodid("-//hacksw/handcal//NONSGML v1.0//EN"),
-          events = List(Event(
+          events = Seq(Event(
             uid = Uid("19970610T172345Z-AF23B2@example.com"),
             dtstamp = ZonedDateTime.of(1997, 6, 10, 17, 23, 45, 0, ZoneOffset.UTC),
             dtstart = ZonedDateTime.of(1997, 7, 14, 17, 0, 0, 0, ZoneOffset.UTC),

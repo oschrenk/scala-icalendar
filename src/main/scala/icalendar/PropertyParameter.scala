@@ -6,11 +6,11 @@ sealed abstract class PropertyParameter[T] {
 }
 
 trait Parameterized { self: Product =>
-  def parameters: List[PropertyParameter[_]] =
+  def parameters: Seq[PropertyParameter[_]] =
     self.productIterator.collect {
       case Some(p: PropertyParameter[_]) => p
       case p: PropertyParameter[_] => p
-    }.toList
+    }.toSeq
 }
 
 case class Xname(value: String, vendorId: Option[String] = None)
@@ -53,8 +53,8 @@ object PropertyParameters {
   case class ExperimentalCuType(xname: Xname) extends CutypeValue with XnameValue
   case class IanaCuType(token: IanaToken) extends CutypeValue with IanaTokenValue
 
-  case class DelegatedFrom(value: List[CalAddress]) extends PropertyParameter[List[CalAddress]]
-  case class DelegatedTo(value: List[CalAddress]) extends PropertyParameter[List[CalAddress]]
+  case class DelegatedFrom(value: Seq[CalAddress]) extends PropertyParameter[Seq[CalAddress]]
+  case class DelegatedTo(value: Seq[CalAddress]) extends PropertyParameter[Seq[CalAddress]]
   case class Dir(value: Uri) extends PropertyParameter[Uri]
   case class Fbtype(value: FbtypeValue) extends PropertyParameter[FbtypeValue]
   object Fbtype {
@@ -71,15 +71,15 @@ object PropertyParameters {
 
   case class Language(value: LanguageTag) extends PropertyParameter[LanguageTag]
   object Language {
-    def apply(tag: String): Language = Language(LanguageTag(List(tag)))
-    def apply(tag1: String, tag2: String): Language = Language(LanguageTag(List(tag1, tag2)))
+    def apply(tag: String): Language = Language(LanguageTag(Seq(tag)))
+    def apply(tag1: String, tag2: String): Language = Language(LanguageTag(Seq(tag1, tag2)))
   }
   // RFC5646
-  case class LanguageTag(subtags: List[String]) extends PropertyParameterValueType {
+  case class LanguageTag(subtags: Seq[String]) extends PropertyParameterValueType {
     lazy val asString: String = subtags.mkString("-")
   }
 
-  case class Member(value: List[CalAddress]) extends PropertyParameter[List[CalAddress]]
+  case class Member(value: Seq[CalAddress]) extends PropertyParameter[Seq[CalAddress]]
 
   case class Value(value: String) extends PropertyParameter[String]
 }

@@ -8,6 +8,6 @@ case class Calendar(
   // TODO calscale
   // TODO method
   // TODO x-prop / iana-prop
-  events: List[Event] = Nil
+  events: Seq[Event] = Nil
 // TODO other components
 ) extends VObject
