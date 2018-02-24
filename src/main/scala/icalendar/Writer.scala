@@ -1,5 +1,4 @@
 package icalendar
-package ical
 
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
@@ -8,8 +7,8 @@ import java.time.format.DateTimeFormatter
  * Writing icalendar objects to the line-based RFC5545 ICalendar format
  */
 object Writer {
-  import ValueTypes._
   import PropertyParameters._
+  import ValueTypes._
 
   val DQUOTE = "\""
   val CRLF = "\r\n"
