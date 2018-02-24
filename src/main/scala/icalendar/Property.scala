@@ -6,9 +6,9 @@ import java.net.{ URL, URI }
 import scala.language.implicitConversions
 
 sealed abstract class Property[T <: ValueType] { self: Product =>
-  lazy val name = nameFromClassName(this)
+  lazy val name: String = nameFromClassName(this)
 
-  val parameters = self.productIterator.collect {
+  val parameters: List[PropertyParameter[_]] = self.productIterator.collect {
     case Some(p: PropertyParameter[_]) => p
     case p: PropertyParameter[_] => p
   }.toList

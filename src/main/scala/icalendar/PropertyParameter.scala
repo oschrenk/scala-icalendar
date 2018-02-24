@@ -3,12 +3,12 @@ package icalendar
 import scala.language.implicitConversions
 
 sealed abstract class PropertyParameter[T] {
-  lazy val name = nameFromClassName(this)
+  lazy val name: String = nameFromClassName(this)
   val value: T
 }
 
 trait Parameterized { self: Product =>
-  def parameters =
+  def parameters: List[PropertyParameter[_]] =
     self.productIterator.collect {
       case Some(p: PropertyParameter[_]) => p
       case p: PropertyParameter[_] => p
@@ -32,7 +32,7 @@ abstract class PropertyParameterValueType {
   val asString: String
 }
 trait Constant {
-  val asString = nameFromClassName(this).toUpperCase
+  val asString: String = nameFromClassName(this).toUpperCase
 }
 
 object PropertyParameters {
@@ -78,7 +78,7 @@ object PropertyParameters {
   }
   // RFC5646
   case class LanguageTag(subtags: List[String]) extends PropertyParameterValueType {
-    lazy val asString = subtags.mkString("-")
+    lazy val asString: String = subtags.mkString("-")
   }
 
   case class Member(value: List[CalAddress]) extends PropertyParameter[List[CalAddress]]

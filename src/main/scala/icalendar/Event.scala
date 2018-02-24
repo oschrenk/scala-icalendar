@@ -23,7 +23,7 @@ case class Event(
   // dtend/duration
   // ...
   categories: List[Categories] = Nil) extends VObject {
-  override def properties() = {
+  override def properties(): List[Property[_ <: ValueType]] = {
     val constants = super.properties()
     if (constants.exists(_.isInstanceOf[Dtstamp])) constants
     else Dtstamp.now() :: constants

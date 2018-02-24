@@ -67,7 +67,7 @@ object Writer {
       "-" + m.group(0)
     })).toUpperCase
 
-  def asIcal(parameters: List[PropertyParameter[_]]) =
+  def asIcal(parameters: List[PropertyParameter[_]]): String =
     parameters
       .map((parameter: PropertyParameter[_]) =>
         ";" + parameterName(parameter.name) + "=" + parameterValueAsIcal(parameter.value))
@@ -76,7 +76,7 @@ object Writer {
   def fold(contentline: String): String =
     if (contentline.length > 75) contentline.take(75) + CRLF + " " + fold(contentline.drop(75))
     else contentline
-  def valueParameters(value: Any) = value match {
+  def valueParameters(value: Any): List[PropertyParameter[_]] = value match {
     case parameterized: Parameterized => parameterized.parameters
     case _ => Nil
   }

@@ -18,14 +18,14 @@ object ValueTypes {
   case class ListType[T <: ValueType](values: T*) extends ValueType
 
   trait ConstantText {
-    val text = nameFromClassName(this).toUpperCase
+    val text: String = nameFromClassName(this).toUpperCase
   }
   sealed abstract class Text extends ValueType {
     val text: String
   }
   object Text {
     implicit def fromString(string: String): Text = new Text with Constant {
-      override val text = string
+      override val text: String = string
     }
   }
 

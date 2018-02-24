@@ -1,5 +1,6 @@
 package object icalendar {
-  def nameFromClassName(obj: Any) = {
+
+  def nameFromClassName(obj: Any): String = {
     val className = obj.getClass.getName
     partAfter(partAfter(className, '.'), '$').replace("$", "")
   }
