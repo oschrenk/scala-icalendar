@@ -5,11 +5,9 @@ package objectspecification
 import java.time.{ ZonedDateTime, ZoneOffset }
 
 import org.scalatest._
-import matchers._
 
 import CalendarProperties._
 import Properties._
-import ValueTypes._
 import Writer._
 
 class ICalendarObject extends WordSpec with Matchers {

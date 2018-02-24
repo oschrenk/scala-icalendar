@@ -18,12 +18,14 @@ trait Parameterized { self: Product =>
 case class Xname(value: String, vendorId: Option[String] = None)
 trait XnameValue {
   val xname: Xname
-  val asString = ???
+  // TODO define string representation
+  val asString = ""
 }
 case class IanaToken(token: String)
 trait IanaTokenValue {
   val token: IanaToken
-  val asString = ???
+  // TODO define string representation
+  val asString = ""
 }
 
 abstract class PropertyParameterValueType {

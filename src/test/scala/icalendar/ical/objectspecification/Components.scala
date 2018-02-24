@@ -5,7 +5,6 @@ package objectspecification
 import java.time.{ ZonedDateTime, ZoneOffset }
 
 import org.scalatest._
-import matchers._
 
 import Properties._
 import ValueTypes._

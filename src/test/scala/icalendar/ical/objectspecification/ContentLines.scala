@@ -3,7 +3,6 @@ package ical
 package objectspecification
 
 import org.scalatest._
-import matchers._
 
 import Properties._
 import Writer._
