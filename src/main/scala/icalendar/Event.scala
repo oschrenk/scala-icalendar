@@ -28,7 +28,4 @@ case class Event(
     if (constants.exists(_.isInstanceOf[Dtstamp])) constants
     else Dtstamp.now() :: constants
   }
-
-  // TODO support for alarms
-  def alarms = List()
 }
