@@ -62,6 +62,7 @@ object Writer {
         case other => DQUOTE + other.toString + DQUOTE
       }.mkString(",")
   }
+
   def parameterName(name: String): String =
     (name.head + "[A-Z\\d]".r.replaceAllIn(name.tail, { m =>
       "-" + m.group(0)
@@ -76,10 +77,12 @@ object Writer {
   def fold(contentline: String): String =
     if (contentline.length > 75) contentline.take(75) + CRLF + " " + fold(contentline.drop(75))
     else contentline
+
   def valueParameters(value: Any): List[PropertyParameter[_]] = value match {
     case parameterized: Parameterized => parameterized.parameters
     case _ => Nil
   }
+
   def asIcal(property: Property[_ <: ValueType]): String =
     fold(
       property.name.toUpperCase +
@@ -90,8 +93,8 @@ object Writer {
 
   def asIcal(vobject: VObject): String = {
     "BEGIN:" + vobject.name + CRLF +
-      vobject.properties().map(asIcal).mkString +
-      vobject.components().map(asIcal).mkString +
-      "END:" + vobject.name + CRLF
+    vobject.properties().map(asIcal).mkString +
+    vobject.components().map(asIcal).mkString +
+    "END:" + vobject.name + CRLF
   }
 }
