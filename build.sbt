@@ -1,6 +1,6 @@
 scalaVersion := "2.12.4"
 
-organization := "net.bzzt"
+organization := "com.oschrenk.spacetime"
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
 
