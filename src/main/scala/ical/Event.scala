@@ -1,4 +1,4 @@
-package icalendar
+package ical
 
 import Properties._
 

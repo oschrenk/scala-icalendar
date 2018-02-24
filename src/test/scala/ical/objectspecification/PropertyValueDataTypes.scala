@@ -1,4 +1,3 @@
-package icalendar
 package ical
 package objectspecification
 
@@ -10,7 +9,7 @@ import ValueTypes._
 import Properties._
 import Writer._
 
-class PropertyValueDataTypes extends WordSpec with Matchers {
+class PropertyValueDataTypes extends WordSpec with Matchers with ObjectSpecification {
   "3.3 Property Value Data Types" should {
     "3.3.4 Date" should {
       "correctly format July 14, 1997" in {

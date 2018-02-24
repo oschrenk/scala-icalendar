@@ -1,4 +1,4 @@
-package icalendar
+package ical
 
 import java.time.{ LocalDate, ZonedDateTime, ZoneOffset }
 import java.net.{ URL, URI }

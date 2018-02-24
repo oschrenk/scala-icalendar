@@ -1,4 +1,3 @@
-package icalendar
 package ical
 package objectspecification
 
@@ -11,7 +10,7 @@ import Properties._
 import PropertyParameters._
 import Writer._
 
-class PropertyParameters extends WordSpec with Matchers {
+class PropertyParameters extends WordSpec with Matchers with ObjectSpecification {
   "3.2 Property Parameters" should {
     "3.2.1 Alternate Text Representation" in {
       asIcal(

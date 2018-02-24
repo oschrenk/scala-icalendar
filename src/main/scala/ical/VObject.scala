@@ -1,4 +1,4 @@
-package icalendar
+package ical
 
 abstract class VObject { self: Product =>
   lazy val name: String = "V" + nameFromClassName(this).toUpperCase

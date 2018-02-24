@@ -1,6 +1,6 @@
-package icalendar
 package ical
 package objectspecification
+package componentproperties
 
 import java.time.{ LocalDate, ZonedDateTime, ZoneOffset }
 
@@ -10,7 +10,7 @@ import ValueTypes._
 import Properties._
 import Writer._
 
-class DateAndTimeComponentProperties extends WordSpec with Matchers {
+class DateAndTimeComponentProperties extends WordSpec with Matchers with ObjectSpecification {
   "3.8.2 Date and Time Component Properties" should {
     "3.8.2.2 Date-Time End" in {
       asIcal(

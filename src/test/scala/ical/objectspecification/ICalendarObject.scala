@@ -1,4 +1,3 @@
-package icalendar
 package ical
 package objectspecification
 
@@ -10,7 +9,7 @@ import CalendarProperties._
 import Properties._
 import Writer._
 
-class ICalendarObject extends WordSpec with Matchers {
+class ICalendarObject extends WordSpec with Matchers with ObjectSpecification {
   "3.4 iCalendar Object" should {
     "Simple example" in {
       asIcal(

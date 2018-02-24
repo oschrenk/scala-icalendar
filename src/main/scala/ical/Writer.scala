@@ -1,4 +1,4 @@
-package icalendar
+package ical
 
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
