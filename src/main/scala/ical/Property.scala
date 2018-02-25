@@ -52,6 +52,36 @@ object Properties {
     implicit def optionFromURL(url: URL): Option[Url] = Some(Url(url))
     implicit def optionFromURI(uri: URI): Option[Url] = Some(Url(uri))
   }
+
+  /**
+   * This property defines the persistent, globally unique identifier for
+   * the calendar component.
+   *
+   * The "UID" itself MUST be a globally unique identifier.
+   *
+   *  The generator of the identifier MUST guarantee that the identifier
+   *  is unique.  There are several algorithms that can be used to
+   *  accomplish this.  A good method to assure uniqueness is to put the
+   *  domain name or a domain literal IP address of the host on which
+   *  the identifier was created on the right-hand side of an "@", and
+   *  on the left-hand side, put a combination of the current calendar
+   *  date and time of day (i.e., formatted in as a DATE-TIME value)
+   *  along with some other currently unique (perhaps sequential)
+   *  identifier available on the system (for example, a process id
+   *  number).  Using a DATE-TIME value on the left-hand side and a
+   *  domain name or domain literal on the right-hand side makes it
+   *  possible to guarantee uniqueness since no two hosts should be
+   *  using the same domain name or IP address at the same time.  Though
+   *  other algorithms will work, it is RECOMMENDED that the right-hand
+   *  side contain some domain identifier (either of the host itself or
+   *  otherwise) such that the generator of the message identifier can
+   *  guarantee the uniqueness of the left-hand side within the scope of
+   *  that domain.    *
+   *
+   * @param value the value of the uid
+   *
+   * See https://tools.ietf.org/html/rfc5545#section-3.8.4.7
+   */
   case class Uid(value: Text) extends Property[Text]
 
   /** Change Management */
