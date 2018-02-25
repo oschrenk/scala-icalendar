@@ -1,6 +1,25 @@
 package ical
 
+import java.time.ZonedDateTime
+
 import Properties._
+import ical.ValueTypes.DateTime
+
+object Event {
+  def from(title: String, start: ZonedDateTime, end: ZonedDateTime, notes: Option[String]): Event = {
+
+    // the rfc recommends a datetime string, a unique identifier, an at sign
+    // and the host eg "19970901T130000Z-123401@example.com"
+    // we keep it simple here and create a guid
+    val uid = Uid(java.util.UUID.randomUUID().toString)
+    val summary = Some(Summary(title))
+    val dtstart = Some(Dtstart(DateTime(start)))
+    val dtend = Some(Dtend(DateTime(end)))
+    val description = notes.map(n => Description(n))
+
+    Event(uid = uid, summary = summary, dtstart = dtstart, dtend = dtend, description = description)
+  }
+}
 
 case class Event(
   dtstamp: Option[Dtstamp] = None,
