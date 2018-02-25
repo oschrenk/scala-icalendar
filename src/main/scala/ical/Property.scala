@@ -42,6 +42,10 @@ object Properties {
     implicit def optionFromLocalDate(ld: LocalDate): Option[Dtstart] = Some(Dtstart(EitherType(Right(ld))))
   }
   case class Dtend(value: EitherType[DateTime, Date]) extends Property[EitherType[DateTime, Date]]
+  object Dtend {
+    implicit def optionFromDateTime(dt: ZonedDateTime): Option[Dtend] = Some(Dtend(EitherType(Left(dt))))
+    implicit def optionFromLocalDate(ld: LocalDate): Option[Dtend] = Some(Dtend(EitherType(Right(ld))))
+  }
   case class FreeBusy(value: ListType[Period], fbtype: Option[Fbtype] = None) extends Property[ListType[Period]]
 
   /** Relationship */

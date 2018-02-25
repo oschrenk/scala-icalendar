@@ -19,7 +19,7 @@ class ICalendarObject extends WordSpec with Matchers with ObjectSpecification {
             uid = Uid("19970610T172345Z-AF23B2@example.com"),
             dtstamp = ZonedDateTime.of(1997, 6, 10, 17, 23, 45, 0, ZoneOffset.UTC),
             dtstart = ZonedDateTime.of(1997, 7, 14, 17, 0, 0, 0, ZoneOffset.UTC),
-            // TODO DTEND
+            dtend = ZonedDateTime.of(1997, 7, 15, 4, 0, 0, 0, ZoneOffset.UTC),
             summary = Summary("Bastille Day Party"))))) should
         haveLines(
           "BEGIN:VCALENDAR",
@@ -29,8 +29,7 @@ class ICalendarObject extends WordSpec with Matchers with ObjectSpecification {
           "DTSTAMP:19970610T172345Z",
           "UID:19970610T172345Z-AF23B2@example.com",
           "DTSTART:19970714T170000Z",
-          // TODO
-          // "DTEND:19970715T040000Z",
+          "DTEND:19970715T040000Z",
           "SUMMARY:Bastille Day Party",
           "END:VEVENT",
           "END:VCALENDAR")

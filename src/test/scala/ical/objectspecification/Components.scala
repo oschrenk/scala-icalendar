@@ -17,6 +17,7 @@ class Components extends WordSpec with Matchers with ObjectSpecification {
           dtstamp = ZonedDateTime.of(1997, 9, 1, 13, 0, 0, 0, ZoneOffset.UTC),
           uid = Uid("19970901T130000Z-123401@example.com"),
           dtstart = ZonedDateTime.of(1997, 9, 3, 16, 30, 0, 0, ZoneOffset.UTC),
+          dtend = ZonedDateTime.of(1997, 9, 3, 19, 0, 0, 0, ZoneOffset.UTC),
           classification = Classification(Private),
           summary = Summary("Annual Employee Review"),
           categories = Seq(Categories(ListType("BUSINESS", "HUMAN RESOURCES"))))) should
@@ -25,8 +26,7 @@ class Components extends WordSpec with Matchers with ObjectSpecification {
           "DTSTAMP:19970901T130000Z",
           "UID:19970901T130000Z-123401@example.com",
           "DTSTART:19970903T163000Z",
-          // TODO add dtend
-          //"DTEND:19970903T190000Z",
+          "DTEND:19970903T190000Z",
           "CLASS:PRIVATE",
           "SUMMARY:Annual Employee Review",
           "CATEGORIES:BUSINESS,HUMAN RESOURCES",

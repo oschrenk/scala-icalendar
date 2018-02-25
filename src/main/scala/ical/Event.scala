@@ -6,6 +6,8 @@ case class Event(
   dtstamp: Option[Dtstamp] = None,
   uid: Uid,
   dtstart: Option[Dtstart] = None,
+  dtend: Option[Dtend] = None,
+  // TODO spec asks for dtend or duration, atm just support dtend and no duration
   classification: Option[Classification] = None,
   description: Option[Description] = None,
   // geo
@@ -20,8 +22,6 @@ case class Event(
   url: Option[Url] = None,
   // recurid
   // rrule
-  // dtend/duration
-  // ...
   categories: Seq[Categories] = Nil) extends VObject {
   override def properties(): Seq[Property[_ <: ValueType]] = {
     val constants = super.properties().toList
