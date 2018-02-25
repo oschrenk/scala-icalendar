@@ -24,3 +24,5 @@ scalacOptions ++= Seq(
     "-Xlint",
     "-Ywarn-dead-code",
     "-Xfuture")
+
+licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
