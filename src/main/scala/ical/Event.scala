@@ -3,10 +3,11 @@ package ical
 import java.time.ZonedDateTime
 
 import Properties._
+import ical.CalendarProperties.{ Prodid, Version }
 import ical.ValueTypes.DateTime
 
 object Event {
-  def from(title: String, start: ZonedDateTime, end: ZonedDateTime, notes: Option[String]): Event = {
+  def from(title: String, start: ZonedDateTime, end: ZonedDateTime, notes: Option[String]): Calendar = {
 
     // the rfc recommends a datetime string, a unique identifier, an at sign
     // and the host eg "19970901T130000Z-123401@example.com"
@@ -17,7 +18,8 @@ object Event {
     val dtend = Some(Dtend(DateTime(end)))
     val description = notes.map(n => Description(n))
 
-    Event(uid = uid, summary = summary, dtstart = dtstart, dtend = dtend, description = description)
+    val event = Event(uid = uid, summary = summary, dtstart = dtstart, dtend = dtend, description = description)
+    Calendar(Prodid("-//oschrenk/spacetime/en"), Version("2.0"), Seq(event))
   }
 }
 
