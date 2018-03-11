@@ -1,4 +1,4 @@
-package ical
+package icalendar.standard
 
 sealed abstract class PropertyParameter[T] {
   lazy val name: String = nameFromClassName(this)

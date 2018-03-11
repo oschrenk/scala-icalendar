@@ -1,13 +1,13 @@
-package ical
-package objectspecification
+package icalendar
+package standard
 package componentproperties
 
 import org.scalatest._
 
-import Properties._
-import Writer._
+import icalendar.standard.Properties._
+import icalendar.standard.Formatter._
 
-class RelationshipComponentProperties extends WordSpec with Matchers with ObjectSpecification {
+class RelationshipComponentPropertiesSpec extends WordSpec with Matchers with ObjectSpecification {
   "3.8.4 Relationship Component Properties" should {
     "3.8.4.6 Uniform Resource Locator" in {
       asIcal(

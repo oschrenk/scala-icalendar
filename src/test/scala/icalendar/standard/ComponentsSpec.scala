@@ -1,19 +1,17 @@
-package ical
-package objectspecification
+package icalendar
+package standard
 
-import java.time.{ ZonedDateTime, ZoneOffset }
+import java.time.{ ZoneOffset, ZonedDateTime }
 
+import icalendar.standard.Properties.{ Categories, Classification, Summary, Uid }
+import icalendar.standard.ValueTypes.{ ListType, Private }
 import org.scalatest._
 
-import Properties._
-import ValueTypes._
-import Writer._
-
-class Components extends WordSpec with Matchers with ObjectSpecification {
+class ComponentsSpec extends WordSpec with Matchers with ObjectSpecification {
   "3.6 Calendar Components" should {
     "3.6.1 Event" in {
-      asIcal(
-        Event(
+      Formatter.asIcal(
+        VEvent(
           dtstamp = ZonedDateTime.of(1997, 9, 1, 13, 0, 0, 0, ZoneOffset.UTC),
           uid = Uid("19970901T130000Z-123401@example.com"),
           dtstart = ZonedDateTime.of(1997, 9, 3, 16, 30, 0, 0, ZoneOffset.UTC),

@@ -1,16 +1,16 @@
-package ical
-package objectspecification
+package icalendar
+package standard
 
 import java.time.{ LocalDate, ZonedDateTime, ZoneOffset }
 
 import org.scalatest._
 
-import ValueTypes._
-import Properties._
-import PropertyParameters._
-import Writer._
+import icalendar.standard.ValueTypes._
+import icalendar.standard.Properties._
+import icalendar.standard.PropertyParameters._
+import icalendar.standard.Formatter._
 
-class PropertyParameters extends WordSpec with Matchers with ObjectSpecification {
+class PropertyParametersSpec extends WordSpec with Matchers with ObjectSpecification {
   "3.2 Property Parameters" should {
     "3.2.1 Alternate Text Representation" in {
       asIcal(

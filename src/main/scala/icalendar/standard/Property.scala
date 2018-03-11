@@ -1,7 +1,7 @@
-package ical
+package icalendar.standard
 
-import java.time.{ LocalDate, ZonedDateTime, ZoneOffset }
-import java.net.{ URL, URI }
+import java.net.{ URI, URL }
+import java.time.{ LocalDate, ZoneOffset, ZonedDateTime }
 
 sealed abstract class Property[T <: ValueType] { self: Product =>
   lazy val name: String = nameFromClassName(this)
@@ -22,8 +22,8 @@ object CalendarProperties {
 
 /** Component properties */
 object Properties {
-  import ValueTypes._
   import PropertyParameters._
+  import ValueTypes._
 
   /** Descriptive */
   case class Attach(value: EitherType[Uri, Binary]) extends Property[EitherType[Uri, Binary]]

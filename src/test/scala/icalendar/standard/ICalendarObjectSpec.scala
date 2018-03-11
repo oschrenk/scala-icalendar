@@ -1,21 +1,19 @@
-package ical
-package objectspecification
+package icalendar
+package standard
 
-import java.time.{ ZonedDateTime, ZoneOffset }
+import java.time.{ ZoneOffset, ZonedDateTime }
 
+import icalendar.standard.CalendarProperties.Prodid
+import icalendar.standard.Properties.{ Summary, Uid }
 import org.scalatest._
 
-import CalendarProperties._
-import Properties._
-import Writer._
-
-class ICalendarObject extends WordSpec with Matchers with ObjectSpecification {
+class ICalendarObjectSpec extends WordSpec with Matchers with ObjectSpecification {
   "3.4 iCalendar Object" should {
     "Simple example" in {
-      asIcal(
-        Calendar(
+      Formatter.asIcal(
+        VCalendar(
           prodid = Prodid("-//hacksw/handcal//NONSGML v1.0//EN"),
-          events = Seq(Event(
+          events = Seq(VEvent(
             uid = Uid("19970610T172345Z-AF23B2@example.com"),
             dtstamp = ZonedDateTime.of(1997, 6, 10, 17, 23, 45, 0, ZoneOffset.UTC),
             dtstart = ZonedDateTime.of(1997, 7, 14, 17, 0, 0, 0, ZoneOffset.UTC),

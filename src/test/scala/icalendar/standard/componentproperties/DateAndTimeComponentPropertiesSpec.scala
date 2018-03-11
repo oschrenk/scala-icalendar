@@ -1,16 +1,16 @@
-package ical
-package objectspecification
+package icalendar
+package standard
 package componentproperties
 
 import java.time.{ LocalDate, ZonedDateTime, ZoneOffset }
 
 import org.scalatest._
 
-import ValueTypes._
-import Properties._
-import Writer._
+import icalendar.standard.ValueTypes._
+import icalendar.standard.Properties._
+import icalendar.standard.Formatter._
 
-class DateAndTimeComponentProperties extends WordSpec with Matchers with ObjectSpecification {
+class DateAndTimeComponentPropertiesSpec extends WordSpec with Matchers with ObjectSpecification {
   "3.8.2 Date and Time Component Properties" should {
     "3.8.2.2 Date-Time End" in {
       asIcal(

@@ -1,7 +1,7 @@
-package ical
+package icalendar.standard
 
 abstract class VObject { self: Product =>
-  lazy val name: String = "V" + nameFromClassName(this).toUpperCase
+  val name: String
 
   def properties(): Seq[Property[_ <: ValueType]] =
     self.productIterator.collect {

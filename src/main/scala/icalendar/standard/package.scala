@@ -1,4 +1,6 @@
-package object ical {
+package icalendar
+
+package object standard {
 
   def nameFromClassName(obj: Any): String = {
     val className = obj.getClass.getName

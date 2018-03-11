@@ -1,12 +1,12 @@
-package ical
-package objectspecification
+package icalendar
+package standard
 
 import org.scalatest._
 
-import CalendarProperties._
-import Writer._
+import icalendar.standard.CalendarProperties._
+import icalendar.standard.Formatter._
 
-class CalendarProperties extends WordSpec with Matchers with ObjectSpecification {
+class VCalendarPropertiesSpec extends WordSpec with Matchers with ObjectSpecification {
   "3.7 Calendar Properties" should {
     "3.7.3 Product Identifier" in {
       asIcal(
