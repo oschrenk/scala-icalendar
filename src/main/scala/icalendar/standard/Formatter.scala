@@ -41,6 +41,7 @@ object Formatter {
     case Binary(bytes) => ??? // TODO base64-encoded
     case list: ListType[_] => list.values.map(valueAsIcal).mkString(",")
     case Period(from, to) => valueAsIcal(from) + "/" + valueAsIcal(to)
+    case GeoLocation(lat, lon) =>  s"$lat,$lon"
   }
 
   private def parameterValueAsIcal(value: Any): String = value match {
@@ -55,6 +56,7 @@ object Formatter {
         case Left(v) => parameterValueAsIcal(v)
         case Right(v) => parameterValueAsIcal(v)
       }
+    case t: Text => t.text
     case l: Seq[_] =>
       l.map {
         case value: ValueType => DQUOTE + valueAsIcal(value) + DQUOTE
@@ -82,7 +84,7 @@ object Formatter {
     case _ => Nil
   }
 
-  private[standard] def asIcal(property: Property[_ <: ValueType]): String =
+  def asIcal(property: Property[_ <: ValueType]): String =
     fold(
       property.name.toUpperCase +
         asIcal(property.parameters) +

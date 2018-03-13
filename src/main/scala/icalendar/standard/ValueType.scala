@@ -3,7 +3,7 @@ package icalendar.standard
 import java.net.{ URI, URL }
 import java.time.{ LocalDate, ZonedDateTime }
 
-sealed trait ValueType
+trait ValueType
 
 object ValueTypes {
   import PropertyParameters._
@@ -27,6 +27,8 @@ object ValueTypes {
       override val text: String = string
     }
   }
+
+  case class GeoLocation(lat: Float, lon: Float) extends ValueType
 
   case class Date(d: LocalDate) extends ValueType
   object Date {

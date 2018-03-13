@@ -113,5 +113,6 @@ class PropertyParametersSpec extends WordSpec with Matchers with ObjectSpecifica
         Dtend(Date(LocalDate.parse("1998-07-04")))) should
         haveLines("DTEND;VALUE=DATE:19980704")
     }
+
   }
 }

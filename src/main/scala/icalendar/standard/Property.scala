@@ -3,7 +3,7 @@ package icalendar.standard
 import java.net.{ URI, URL }
 import java.time.{ LocalDate, ZoneOffset, ZonedDateTime }
 
-sealed abstract class Property[T <: ValueType] { self: Product =>
+abstract class Property[T <: ValueType] { self: Product =>
   lazy val name: String = nameFromClassName(this)
 
   val parameters: Seq[PropertyParameter[_]] = self.productIterator.collect {

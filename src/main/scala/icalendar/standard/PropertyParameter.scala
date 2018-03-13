@@ -1,6 +1,6 @@
 package icalendar.standard
 
-sealed abstract class PropertyParameter[T] {
+abstract class PropertyParameter[T] {
   lazy val name: String = nameFromClassName(this)
   val value: T
 }
