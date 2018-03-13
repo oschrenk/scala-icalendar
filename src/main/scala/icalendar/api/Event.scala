@@ -2,10 +2,10 @@ package icalendar.api
 
 import java.time.ZonedDateTime
 
-import icalendar.standard.{ VCalendar, VEvent }
-import icalendar.standard.CalendarProperties.{ Prodid, Version }
+import icalendar.standard.CalendarProperties.Prodid
 import icalendar.standard.Properties._
 import icalendar.standard.ValueTypes.DateTime
+import icalendar.standard.{VCalendar, VEvent}
 
 sealed trait Event
 
