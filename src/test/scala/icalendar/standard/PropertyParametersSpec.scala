@@ -1,14 +1,14 @@
 package icalendar
 package standard
 
-import java.time.{ LocalDate, ZonedDateTime, ZoneOffset }
+import java.time.{LocalDate, ZoneOffset, ZonedDateTime}
 
-import org.scalatest._
-
-import icalendar.standard.ValueTypes._
+import icalendar.standard.Formatter._
 import icalendar.standard.Properties._
 import icalendar.standard.PropertyParameters._
-import icalendar.standard.Formatter._
+import icalendar.standard.ValueTypes._
+import icalendar.util.ObjectSpecification
+import org.scalatest._
 
 class PropertyParametersSpec extends WordSpec with Matchers with ObjectSpecification {
   "3.2 Property Parameters" should {

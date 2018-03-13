@@ -2,9 +2,9 @@ package icalendar
 package standard
 
 import org.scalatest._
-
 import icalendar.standard.Properties._
 import icalendar.standard.Formatter._
+import icalendar.util.ObjectSpecification
 
 class ContentLinesSpec extends WordSpec with Matchers with ObjectSpecification {
   "3.1 Content Lines" should {

@@ -3,9 +3,9 @@ package standard
 package componentproperties
 
 import org.scalatest._
-
 import icalendar.standard.Properties._
 import icalendar.standard.Formatter._
+import icalendar.util.ObjectSpecification
 
 class RelationshipComponentPropertiesSpec extends WordSpec with Matchers with ObjectSpecification {
   "3.8.4 Relationship Component Properties" should {

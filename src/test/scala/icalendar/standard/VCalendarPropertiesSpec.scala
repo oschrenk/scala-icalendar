@@ -2,9 +2,9 @@ package icalendar
 package standard
 
 import org.scalatest._
-
 import icalendar.standard.CalendarProperties._
 import icalendar.standard.Formatter._
+import icalendar.util.ObjectSpecification
 
 class VCalendarPropertiesSpec extends WordSpec with Matchers with ObjectSpecification {
   "3.7 Calendar Properties" should {

@@ -1,13 +1,13 @@
 package icalendar
 package standard
 
-import java.time.{ LocalDate, ZonedDateTime, ZoneId }
+import java.time.{LocalDate, ZoneId, ZonedDateTime}
 
 import org.scalatest._
-
 import icalendar.standard.ValueTypes._
 import icalendar.standard.Properties._
 import icalendar.standard.Formatter._
+import icalendar.util.ObjectSpecification
 
 class PropertyValueDataTypes extends WordSpec with Matchers with ObjectSpecification {
   "3.3 Property Value Data Types" should {

@@ -1,4 +1,4 @@
-package icalendar.standard
+package icalendar.util
 
 import org.scalatest.Matchers
 import org.scalatest.matchers.Matcher

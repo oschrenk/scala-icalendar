@@ -1,10 +1,11 @@
 package icalendar
 package standard
 
-import java.time.{ ZoneOffset, ZonedDateTime }
+import java.time.{ZoneOffset, ZonedDateTime}
 
 import icalendar.standard.CalendarProperties.Prodid
 import icalendar.standard.Properties._
+import icalendar.util.ObjectSpecification
 import org.scalatest._
 
 class ICalendarObjectSpec extends WordSpec with Matchers with ObjectSpecification {

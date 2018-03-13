@@ -2,13 +2,13 @@ package icalendar
 package standard
 package componentproperties
 
-import java.time.{ LocalDate, ZonedDateTime, ZoneOffset }
+import java.time.{LocalDate, ZoneOffset, ZonedDateTime}
 
 import org.scalatest._
-
 import icalendar.standard.ValueTypes._
 import icalendar.standard.Properties._
 import icalendar.standard.Formatter._
+import icalendar.util.ObjectSpecification
 
 class DateAndTimeComponentPropertiesSpec extends WordSpec with Matchers with ObjectSpecification {
   "3.8.2 Date and Time Component Properties" should {
