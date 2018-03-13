@@ -7,7 +7,16 @@ import icalendar.standard.CalendarProperties.{ Prodid, Version }
 import icalendar.standard.Properties._
 import icalendar.standard.ValueTypes.DateTime
 
+sealed trait Event
+
 object Event {
+
+  sealed trait PristineEvent extends Event
+  sealed trait Title extends Event
+  sealed trait StartDate extends Event
+  sealed trait EndDate extends Event
+  type MinimalEvent = Event with Title with StartDate with EndDate
+
   def from(title: String, start: ZonedDateTime, end: ZonedDateTime, notes: Option[String]): VCalendar = {
 
     // the rfc recommends a datetime string, a unique identifier, an at sign
