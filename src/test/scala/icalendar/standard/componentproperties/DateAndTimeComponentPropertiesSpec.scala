@@ -2,7 +2,7 @@ package icalendar
 package standard
 package componentproperties
 
-import java.time.{LocalDate, ZoneOffset, ZonedDateTime}
+import java.time.{ LocalDate, ZoneOffset, ZonedDateTime }
 
 import org.scalatest._
 import icalendar.standard.ValueTypes._

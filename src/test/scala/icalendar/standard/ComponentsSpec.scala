@@ -1,10 +1,10 @@
 package icalendar
 package standard
 
-import java.time.{ZoneOffset, ZonedDateTime}
+import java.time.{ ZoneOffset, ZonedDateTime }
 
 import icalendar.standard.Properties._
-import icalendar.standard.ValueTypes.{ListType, Private}
+import icalendar.standard.ValueTypes.{ ListType, Private }
 import icalendar.util.ObjectSpecification
 import org.scalatest._
 

@@ -1,7 +1,7 @@
 package icalendar
 package standard
 
-import java.time.{LocalDate, ZoneId, ZonedDateTime}
+import java.time.{ LocalDate, ZoneId, ZonedDateTime }
 
 import org.scalatest._
 import icalendar.standard.ValueTypes._

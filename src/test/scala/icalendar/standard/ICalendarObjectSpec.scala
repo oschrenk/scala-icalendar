@@ -1,7 +1,7 @@
 package icalendar
 package standard
 
-import java.time.{ZoneOffset, ZonedDateTime}
+import java.time.{ ZoneOffset, ZonedDateTime }
 
 import icalendar.standard.CalendarProperties.Prodid
 import icalendar.standard.Properties._

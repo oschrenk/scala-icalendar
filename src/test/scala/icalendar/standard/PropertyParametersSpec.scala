@@ -1,7 +1,7 @@
 package icalendar
 package standard
 
-import java.time.{LocalDate, ZoneOffset, ZonedDateTime}
+import java.time.{ LocalDate, ZoneOffset, ZonedDateTime }
 
 import icalendar.standard.Formatter._
 import icalendar.standard.Properties._
@@ -113,5 +113,6 @@ class PropertyParametersSpec extends WordSpec with Matchers with ObjectSpecifica
         Dtend(Date(LocalDate.parse("1998-07-04")))) should
         haveLines("DTEND;VALUE=DATE:19980704")
     }
+
   }
 }

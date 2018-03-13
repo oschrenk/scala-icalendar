@@ -5,7 +5,7 @@ import java.time.ZonedDateTime
 import icalendar.standard.CalendarProperties.Prodid
 import icalendar.standard.Properties._
 import icalendar.standard.ValueTypes.DateTime
-import icalendar.standard.{VCalendar, VEvent}
+import icalendar.standard.{ VCalendar, VEvent }
 
 sealed trait Event
 
@@ -15,6 +15,8 @@ object Event {
   sealed trait Title extends Event
   sealed trait StartDate extends Event
   sealed trait EndDate extends Event
+  sealed trait Notes extends Event
+  sealed trait Location extends Event
   type MinimalEvent = Event with Title with StartDate with EndDate
 
   def from(title: String, start: ZonedDateTime, end: ZonedDateTime, notes: Option[String]): VCalendar = {
