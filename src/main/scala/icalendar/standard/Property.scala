@@ -38,12 +38,12 @@ object Properties {
   /** Date and Time */
   case class Dtstart(value: EitherType[DateTime, Date]) extends Property[EitherType[DateTime, Date]]
   object Dtstart {
-    implicit def optionFromDateTime(dt: ZonedDateTime): Option[Dtstart] = Some(Dtstart(EitherType(Left(dt))))
+    implicit def fromDateTime(dt: ZonedDateTime): Dtstart = Dtstart(EitherType(Left(dt)))
     implicit def optionFromLocalDate(ld: LocalDate): Option[Dtstart] = Some(Dtstart(EitherType(Right(ld))))
   }
   case class Dtend(value: EitherType[DateTime, Date]) extends Property[EitherType[DateTime, Date]]
   object Dtend {
-    implicit def optionFromDateTime(dt: ZonedDateTime): Option[Dtend] = Some(Dtend(EitherType(Left(dt))))
+    implicit def fromDateTime(dt: ZonedDateTime): Dtend = Dtend(EitherType(Left(dt)))
     implicit def optionFromLocalDate(ld: LocalDate): Option[Dtend] = Some(Dtend(EitherType(Right(ld))))
   }
   case class FreeBusy(value: ListType[Period], fbtype: Option[Fbtype] = None) extends Property[ListType[Period]]
@@ -88,10 +88,20 @@ object Properties {
    */
   case class Uid(value: Text) extends Property[Text]
 
-  /** Change Management */
+  //* Change Management */
+
+  /**
+   * The property indicates the date/time that the instance of the iCalendar
+   * object was created.
+   *
+   * This property MUST be included in the "VEVENT", "VTODO", "VJOURNAL" or
+   * "VFREEBUSY" calendar components.
+   *
+   * @param value creation time stamp
+   */
   case class Dtstamp(value: DateTime) extends Property[DateTime]
   object Dtstamp {
     def now(): Dtstamp = Dtstamp(ZonedDateTime.now(ZoneOffset.UTC))
-    implicit def optionFromDateTime(dt: ZonedDateTime): Option[Dtstamp] = Some(Dtstamp(dt))
+    implicit def fromDateTime(dt: ZonedDateTime): Dtstamp = Dtstamp(dt)
   }
 }

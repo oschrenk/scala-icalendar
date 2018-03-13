@@ -92,8 +92,8 @@ object Formatter {
 
   def asIcal(vobject: VObject): String = {
     "BEGIN:" + vobject.name + CRLF +
-      vobject.properties().map(asIcal).mkString +
-      vobject.components().map(asIcal).mkString +
+      vobject.properties.map(asIcal).mkString +
+      vobject.components.map(asIcal).mkString +
       "END:" + vobject.name + CRLF
   }
 }

@@ -23,12 +23,12 @@ object Event {
     // and the host eg "19970901T130000Z-123401@example.com"
     // we keep it simple here and create a guid
     val uid = Uid(java.util.UUID.randomUUID().toString)
-    val summary = Some(Summary(title))
-    val dtstart = Some(Dtstart(DateTime(start)))
-    val dtend = Some(Dtend(DateTime(end)))
-    val description = notes.map(n => Description(n))
+    val summary = Summary(title)
+    val dtstart = Dtstart(DateTime(start))
+    val dtend = Dtend(DateTime(end))
+    val description = notes.map(n => Description(n)).toSeq
 
-    val event = VEvent(uid = uid, summary = summary, dtstart = dtstart, dtend = dtend, description = description)
-    VCalendar(Prodid("-//oschrenk/spacetime/en"), Version("2.0"), Seq(event))
+    val event = new VEvent(uid, Seq(summary, dtstart, dtend) ++ description)
+    new VCalendar(Prodid("-//oschrenk/spacetime/en"), Seq(event))
   }
 }
