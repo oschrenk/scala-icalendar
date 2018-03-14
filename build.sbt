@@ -2,7 +2,7 @@ name := "ical.scala"
 
 organization := "com.oschrenk.spacetime"
 
-version := "0.0.6"
+version := "0.0.7"
 
 scalaVersion := "2.12.4"
 
