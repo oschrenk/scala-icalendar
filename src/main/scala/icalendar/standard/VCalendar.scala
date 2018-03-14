@@ -2,7 +2,7 @@ package icalendar.standard
 
 import icalendar.standard.CalendarProperties._
 
-class VCalendar(
+case class VCalendar(
   prodid: Prodid,
   events: Seq[VEvent] = Seq.empty,
   version: Version = Version("2.0")) extends VObject {
