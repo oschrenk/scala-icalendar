@@ -72,7 +72,7 @@ class EventBuilder[E <: Event]() {
       }.getOrElse(Seq.empty)
     }
 
-    val event = new VEvent(uid, Seq(summary, dtstart, dtend) ++ description ++ loc)
+    val event = new VEvent(uid, dtstart, Seq(summary, dtend) ++ description ++ loc)
     new VCalendar(Prodid("-//oschrenk/spacetime/en"), Seq(event))
   }
 }

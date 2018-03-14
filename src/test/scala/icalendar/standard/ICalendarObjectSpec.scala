@@ -16,11 +16,12 @@ class ICalendarObjectSpec extends WordSpec with Matchers with ObjectSpecificatio
       val dtend: Dtend = ZonedDateTime.of(1997, 7, 15, 4, 0, 0, 0, ZoneOffset.UTC)
       val summary = Summary("Bastille Day Party")
       Formatter.asIcal(
-        new VCalendar(
+        VCalendar(
           prodid = Prodid("-//hacksw/handcal//NONSGML v1.0//EN"),
           events = Seq(new VEvent(
             Uid("19970610T172345Z-AF23B2@example.com"),
-            Seq(dtstart, dtend, summary),
+            dtstart,
+            Seq(dtend, summary),
             Seq.empty,
             dtstamp)))) should
         haveLines(

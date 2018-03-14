@@ -30,7 +30,7 @@ object Event {
     val dtend = Dtend(DateTime(end))
     val description = notes.map(n => Description(n)).toSeq
 
-    val event = new VEvent(uid, Seq(summary, dtstart, dtend) ++ description)
+    val event = new VEvent(uid, dtstart, Seq(summary, dtend) ++ description)
     new VCalendar(Prodid("-//oschrenk/spacetime/en"), Seq(event))
   }
 }

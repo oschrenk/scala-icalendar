@@ -20,7 +20,8 @@ class ComponentsSpec extends WordSpec with Matchers with ObjectSpecification {
       Formatter.asIcal(
         new VEvent(
           uid = Uid("19970901T130000Z-123401@example.com"),
-          Seq(dtstart, dtend, classification, summary, categories),
+          dtstart,
+          Seq(dtend, classification, summary, categories),
           Seq.empty,
           dtstamp)) should
         haveLines(
