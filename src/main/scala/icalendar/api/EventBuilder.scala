@@ -42,9 +42,8 @@ class EventBuilder() {
   }
 
   def at(title: String, address: String, lat: Double, lon: Double): EventBuilder = {
-    val eb = new EventBuilder()
-    eb.location = Some((title, address, lat, lon))
-    eb
+    this.location = Some((title, address, lat, lon))
+    this
   }
 
   def build(): VCalendar = {
